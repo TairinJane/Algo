@@ -1,5 +1,5 @@
 #include <iostream>
-//#include <algorithm>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,25 +14,16 @@ int main() {
     }
 //    sort(a, a + n, greater<>());
     int diff = INT_MAX;
-    /*int heap;
-    for (int k = 0; k < n; ++k) {
-        heap = 0;
-        heap += a[k];
-        for (int i = 0; i < n - k; ++i) {
-            heap += a[i];
-            if (heap >= sum / 2) break;
-        }
-        diff = min(diff, abs(heap - (sum - heap)));
-    }*/
-    for (int i = (1 << (n - 1)) - 1; i >= 0; --i) {
+    for (int i = (1 << n) - 1; i >= 0; --i) {
         int heap = 0;
 
-        for (int j = 0; j < n; ++j)
+        for (int j = 0; j < n; ++j) {
+            cout << " " << i << " " << j << " " << (1 << j) << " " << (i & (1 << j)) << endl;
             if (i & (1 << j)) heap += a[j];
             else heap -= a[j];
-
+        }
         diff = min(diff, abs(heap));
-//        cout << i << " " << heap << endl;
+        cout << i << " " << heap << " " << diff << endl;
     }
     cout << endl << diff;
     return 0;
