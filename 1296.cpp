@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main() {
+int hyper_loop() {
 
     int n;
     cin >> n;
