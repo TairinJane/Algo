@@ -1,11 +1,9 @@
 #include <iostream>
-#include <cmath>
-#include <algorithm>
 #include <list>
 
 using namespace std;
 
-int main() {
+int soldiers() {
 
     long int n, k;
     cin >> n >> k;
