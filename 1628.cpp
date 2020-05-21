@@ -105,6 +105,5 @@ int white_lines() {
     count += (isolated_count - (int) isolated.size());
     cout << count << endl;
 
-
     return 0;
 }
