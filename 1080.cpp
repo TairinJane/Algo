@@ -4,13 +4,12 @@
 
 using namespace std;
 
-int main() {
+int colors() {
     long int n;
     cin >> n;
     n++;
     vector<int> graph[n];
     int colors[n];
-    bool used[n];
     queue<int> q;
 
     for (int i = 1; i < n; ++i) {
@@ -25,7 +24,6 @@ int main() {
     }
 
     q.push(1);
-//    used[1] = true;
     colors[1] = 0;
 
     while (!q.empty()) {
@@ -34,7 +32,6 @@ int main() {
         for (int i = 0; i < graph[node].size(); ++i) {
             int child = graph[node][i];
             if (colors[child] == -1) {
-//                used[child] = true;
                 colors[child] = colors[node] == 1 ? 0 : 1;
                 q.push(child);
             } else if (colors[child] == colors[node]) {
