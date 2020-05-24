@@ -23,17 +23,15 @@ void dfs(int v) {
     if (v == f) topo_f = (int) topological.size() - 1;
 }
 
-int main() {
+int topo() {
     int n;
     int m;
-//    cin >> n >> m;
     scanf("%d %d", &n, &m);
     n++;
 
     map<pair<int, int>, int> costs;
     int a, b, c;
     for (int i = 0; i < m; ++i) {
-//        cin >> a >> b >> c;
         scanf("%d %d %d", &a, &b, &c);
         costs[{a, b}] = c;
         pipes[a].push_back(b);
@@ -44,7 +42,6 @@ int main() {
         used[k] = 0;
     }
 
-//    cin >> s >> f;
     scanf("%d %d", &s, &f);
 
     dfs(s);
@@ -52,12 +49,10 @@ int main() {
     if (topo_s > topo_f) {
         for (int j = topo_s; j > topo_f; --j) {
             int node = topological[j];
-            cout << "node: " << node << endl;
             for (int i = 0; i < pipes[node].size(); ++i) {
                 int next = pipes[node][i];
                 int new_cost = d[node] + costs[{node, next}];
                 if (new_cost > d[next]) d[next] = new_cost;
-                cout << next << ": " << d[next] << ", ";
             }
             cout << endl;
         }
